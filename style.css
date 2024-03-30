@@ -1,6 +1,5 @@
 body {
     position: relative;
-    padding-top: 100px;
     background: rgb(216, 212, 0);
     height: 100vh;
 }
@@ -12,7 +11,17 @@ body {
     perspective: 1000px;
     width: max-content;
     margin: auto;
-    transform: translatey(200px)
+    transform: translatey(300px)
+}
+@media all and (min-width: 600px){
+    .drumS {
+            transform: translatey(350px) scale(1.5, 1.5)
+        }
+}
+@media all and (min-width: 900px){
+    .drumS {
+            transform: translatey(380px) scale(2, 2)
+        }
 }
 
 /* .drumS>div {
