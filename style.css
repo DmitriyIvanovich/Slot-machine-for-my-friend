@@ -14,16 +14,16 @@ body {
     perspective: 1000px;
     width: max-content;
     margin: auto;
-    transform: translatey(0px)
+    transform: translatey(-100px) translatey(0px)
 }
 @media all and (max-width: 400px){
     .drumS {
-            transform: translatey(-60px) scale(0.9, 0.9)
+            transform: translatey(-100px) scale(0.9, 0.9)
         }
 }
 @media all and (max-width: 350px){
     .drumS {
-            transform: translatey(-80px) scale(0.8, 0.8)
+            transform: translatey(-100px) scale(0.8, 0.8)
         }
 }
 @media all and (min-width: 600px){
