@@ -11,8 +11,8 @@ class Drum {
 
         this.angle = begin_angle
         this.accelerator = 0
-        this.accelerator_1 = 1
-        this.accelerator_2 = -0.08
+        this.accelerator_1 = 0.3
+        this.accelerator_2 = -0.09 + 0.01 * this.elementNumber
         this.maxSpeed = 12
         this.speed = 0
         this.flagMaxSpeedReached = false
@@ -24,7 +24,7 @@ class Drum {
         this.stablePosition = false
         const randomValue = Math.random()
         // print(randomValue)
-        let newMaxSpeed = this.maxSpeed * (1 + 0.8 * randomValue)
+        let newMaxSpeed = this.maxSpeed * (1 + 0.3 * randomValue)
         return new Promise((res, rej) => {
             const interval = setInterval(() => {
                 this.accelerator =
@@ -115,7 +115,7 @@ const DOM_DrumS = document.querySelectorAll(".drum")
 // drum_3.rotate().then(res => print(res))
 
 const admin = {
-    drum_delay: 200,
+    drum_delay: 80,
     drums: [
         //барабаны должны быть упорядочены слева направо!
         new Drum(DOM_DrumS, 0),
