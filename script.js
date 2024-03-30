@@ -22,7 +22,9 @@ class Drum {
 
     rotate() {
         this.stablePosition = false
-
+        const randomValue = Math.random()
+        // print(randomValue)
+        let newMaxSpeed = this.maxSpeed * (1 + 0.8 * randomValue)
         return new Promise((res, rej) => {
             const interval = setInterval(() => {
                 this.accelerator =
@@ -31,7 +33,10 @@ class Drum {
 
                 this.speed += this.accelerator
                 this.angle += this.speed
-                if (this.speed >= this.maxSpeed * (1 + 0.7 * Math.random(3))) this.flagMaxSpeedReached = true
+                if (this.speed >= newMaxSpeed) {
+                    this.flagMaxSpeedReached = true
+                    // print(newMaxSpeed)
+                }
                 if (this.speed < 0) {
                     this.speed = 0
                     this.angle = Math.round(this.angle % 360)
@@ -68,8 +73,12 @@ class Drum {
         // print("dx = " + dx)
 
         const interval = setInterval(() => {
-            this.angle += 0.011 * dx
+            this.angle +=  0.011 * dx
 
+            if(dx ===0){
+                this.angle = X0
+                this.stablePosition = true
+            }
             if (dx > 0 && this.angle >= X0) {
                 this.angle = X0
                 this.stablePosition = true
@@ -113,9 +122,9 @@ const admin = {
         new Drum(DOM_DrumS, 2)
     ],
     conboModifacators: [
-        [0, 3], [3, 0],
-        [1, 4], [4, 1],
-        [2, 5], [5, 2],
+        // [0, 3], [3, 0],
+        // [1, 4], [4, 1],
+        // [2, 5], [5, 2],
     ],
 
     drumsRotate: function (cb = () => { }) {
@@ -208,9 +217,9 @@ const admin = {
 
         if (comboData.maxValueCombo > 1) {
             arraysByMaxCombo[0].forEach(item => {
-                print(item)
+                // print(item)
                 const cell = item.DOM_element.querySelector(`.cell[number="${item.lastSector}"]`)
-                print(cell)
+                // print(cell)
                 cell.classList.add("selected")
 
                 sound.startSound(end_sound)
@@ -230,7 +239,7 @@ const admin = {
     },
     clearCell() {
         const cells = document.querySelectorAll(".drumS .cell.selected")
-        print(cells)
+        // print(cells)
         for (let cell of cells) {
             cell.classList.remove("selected")
         }
@@ -254,7 +263,6 @@ const sound = {
         soundElement.volume = 0.9;
         soundElement.muted = false;
         soundElement.play()
-        print(11111)
     },
     stopSound: function (soundElement) {
         soundElement.pause()
