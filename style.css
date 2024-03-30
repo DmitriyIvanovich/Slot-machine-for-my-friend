@@ -1,6 +1,8 @@
 body {
     margin: 0;
     position: relative;
+    display: flex;
+    align-items: center;
     background: rgb(216, 212, 0);
     height: 100vh;
 }
@@ -12,26 +14,26 @@ body {
     perspective: 1000px;
     width: max-content;
     margin: auto;
-    transform: translatey(300px)
+    transform: translatey(0px)
 }
 @media all and (max-width: 400px){
     .drumS {
-            transform: translatey(280px) scale(0.9, 0.9)
+            transform: translatey(0px) scale(0.9, 0.9)
         }
 }
 @media all and (max-width: 350px){
     .drumS {
-            transform: translatey(260px) scale(0.8, 0.8)
+            transform: translatey(0px) scale(0.8, 0.8)
         }
 }
 @media all and (min-width: 600px){
     .drumS {
-            transform: translatey(350px) scale(1.5, 1.5)
+            transform: translatey(0px) scale(1.5, 1.5)
         }
 }
 @media all and (min-width: 900px){
     .drumS {
-            transform: translatey(380px) scale(2, 2)
+            transform: translatey(0px) scale(2, 2)
         }
 }
 
