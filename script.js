@@ -39,7 +39,7 @@ class Drum {
                 }
                 if (this.speed < 0) {
                     this.speed = 0
-                    this.angle = Math.round(this.angle % 360)
+                    // this.angle = Math.round(this.angle % 360)
                 }
                 this.DOM_element.style.transform = 'rotateX(' + this.angle + 'deg)'
 
@@ -58,16 +58,18 @@ class Drum {
         // print(angleStep)
         // print(this.angle)
 
-        let sector = Math.round(this.angle / angleStep)
+        let sector = Math.round((this.angle % 360) / angleStep)
         if (sector === 6) sector = 0 //проблема с этим моментоМ!!!!
         // print("drump: " + this.elementNumber, "sector: " + sector)
         /**
          * xa - положение точки А 
          * x0 - координата середины сектора
+         * не забывать о смещении 30 градусов. Важно для момента перехода сектора 5-0!!!
          */
-        const X0 = sector * angleStep
+        const X0 = Math.floor((this.angle + 30) / 360) *360  + (sector * angleStep)
+        // print(sector)
         // print(X0)
-        const XA = this.angle
+        const XA = Math.round(this.angle) 
         // print(XA)
         const dx = X0 - XA
         // print("dx = " + dx)
@@ -116,7 +118,6 @@ const admin = {
     drum_delay: 200,
     drums: [
         //барабаны должны быть упорядочены слева направо!
-        //настроено корректно только для 1-3 барабанов 
         new Drum(DOM_DrumS, 0),
         new Drum(DOM_DrumS, 1),
         new Drum(DOM_DrumS, 2)
