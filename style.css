@@ -18,17 +18,17 @@ body {
 }
 @media all and (max-width: 400px){
     .drumS {
-            transform: translatey(0px) scale(0.9, 0.9)
+            transform: translatey(-50px) scale(0.9, 0.9)
         }
 }
 @media all and (max-width: 350px){
     .drumS {
-            transform: translatey(0px) scale(0.8, 0.8)
+            transform: translatey(-50px) scale(0.8, 0.8)
         }
 }
 @media all and (min-width: 600px){
     .drumS {
-            transform: translatey(0px) scale(1.5, 1.5)
+            transform: translatey(-50px) scale(1.5, 1.5)
         }
 }
 @media all and (min-width: 900px){
